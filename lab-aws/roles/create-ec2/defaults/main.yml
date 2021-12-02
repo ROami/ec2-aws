@@ -1,0 +1,14 @@
+---
+# defaults file for create-ec2
+
+#instance_type: t2.micro
+#security_group: crunchify_security_grp
+#image: ami-crunchify231di
+#keypair: crunchify
+#region: us-east-2 # Change the Region
+#count: 1
+#subnetid: subnet-0e80c6bbb664c7138
+#project_name: testing
+#env: staging
+
+
