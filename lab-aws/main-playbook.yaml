@@ -1,0 +1,16 @@
+---
+- name: Provision an EC2 Instance
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+  - /root/lab-aws/credential.yaml 
+
+
+  pre_tasks:
+  - name: Installing NumPy python library using Ansible pip module
+    pip:
+      name: boto,boto3
+   
+  roles:
+  - create-ec2  
