@@ -8,10 +8,10 @@
 #  - '{{source_path}}/lab-aws/credential.yaml'
   - /var/lib/jenkins/workspace/aws-ansible/ec2-aws/lab-aws/credential.yaml
 
-  pre_tasks:
-  - name: Installing NumPy python library using Ansible pip module
-    pip:
-      name: boto,boto3
+#  pre_tasks:
+#  - name: Installing NumPy python library using Ansible pip module
+#    pip:
+#      name: boto,boto3
 
    
   roles:
