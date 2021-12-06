@@ -4,8 +4,8 @@
   connection: local
   gather_facts: False
   vars_files:
-  - "{{source_path}}/lab-aws/credential.yaml" 
-
+#  - '{{source_path}}/lab-aws/credential.yaml'
+  - /var/lib/jenkins/workspace/aws-ansible/ec2-aws/lab-aws/credential.yaml
 
   pre_tasks:
   - name: Installing NumPy python library using Ansible pip module

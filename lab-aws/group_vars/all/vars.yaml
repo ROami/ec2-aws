@@ -6,7 +6,7 @@ instance_type: t2.micro
 image: ami-00f7e5c52c0f43726
 region: us-west-2 # Change the Region
 count: 1
-subnetid: subnet-0741abdb41c69bb66
+subnetid: subnet-078a76439dc81222b
 project_name: testing
 env: staging
 hostpath: "{{ source_path }}/inventory/inventory"
