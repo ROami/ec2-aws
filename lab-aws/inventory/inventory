@@ -1,4 +1,3 @@
 [localhost]
-localhost
-localhost ansible_python_interpreter=/usr/bin/python2.7 
+localhost ansible_python_interpreter=/usr/bin/python3 
 [newec2]
