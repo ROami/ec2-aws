@@ -46,7 +46,7 @@
     wait: yes
     instance_tags:
         env: "{{ env }}"
-       # Name: "test{{ instances.ami_launch_index }}"
+        Name: "{{ project_name }}instance"
     count_tag:
         name: Demo
     exact_count: "{{ count }}"
