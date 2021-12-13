@@ -1,0 +1,14 @@
+---
+- name: Provision an EC2 Instance
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  become: true
+  vars_files:
+#  - '{{source_path}}/lab-aws/credential.yaml'
+  - /var/lib/jenkins/workspace/aws-ansible/ec2-aws/lab-aws/credential.yaml
+
+
+   
+  roles:
+  - grafana 

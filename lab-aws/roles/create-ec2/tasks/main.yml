@@ -30,6 +30,12 @@
   debug:
     msg: "{{ ec2_key }}"
 
+- name: Touch the key file
+  file:
+    path: "{{ source_path }}/key-gen/{{ project_name }}-{{ env }}-key.pem"
+    state: touch
+    mode: 0600
+
 - name: Save private key
   copy: content="{{ ec2_key.key.private_key }}" dest='{{ source_path }}/key-gen/{{ project_name }}-{{ env }}-key.pem' mode=0600
   when: ec2_key.changed
