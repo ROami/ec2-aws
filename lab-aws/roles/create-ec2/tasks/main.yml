@@ -10,17 +10,24 @@
     region: "{{ region }}"
     rules:
       - proto: tcp  
-        from_port: "{{ item }}"
-        to_port: "{{ item }}"
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp
+        from_port: 9090
+        to_port: 9090
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp
+        from_port: 3000
+        to_port: 3000
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp
+        from_port: 9100
+        to_port: 9100
         cidr_ip: 0.0.0.0/0
     rules_egress:
       - proto: all
         cidr_ip: 0.0.0.0/0
-  with_items:
-  - 22 
-  - 9090
-  - 3000
-  - 9100
   register: sec_group_firewall
   when: project_name  == "grafana"
 
