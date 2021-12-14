@@ -31,8 +31,9 @@
   register: sec_group_firewall
   when: project_name  == "grafana"
 
+- set_fact: sec_group_firewall="{{sec_group_firewall}}"
 
-- name: Create security group for normla ec2
+- name: Create security group for normal ec2
   ec2_group:
     aws_access_key: "{{ ec2_access_key }}"
     aws_secret_key: "{{ ec2_secret_key }}"
@@ -82,7 +83,7 @@
   debug:
     msg: "{{ sec_group_firewall }}"
 
-- name: Create an EC2 instance
+- name: Create an EC2 instance grafana
   ec2:
     aws_access_key: "{{ ec2_access_key }}"
     aws_secret_key: "{{ ec2_secret_key }}"
