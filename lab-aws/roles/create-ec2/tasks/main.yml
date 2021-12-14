@@ -77,6 +77,11 @@
   copy: content="{{ ec2_key.key.private_key }}" dest='{{ source_path }}/key-gen/{{ project_name }}-{{ env }}-key.pem' mode=0644
   when: ec2_key.changed
 
+
+- name: debug var sec_group_firewall
+  debug:
+    msg: "{{ sec_group_firewall }}"
+
 - name: Create an EC2 instance
   ec2:
     aws_access_key: "{{ ec2_access_key }}"
