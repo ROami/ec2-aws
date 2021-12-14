@@ -3,29 +3,27 @@
 
 - name: install gpg
   yum:
-    name: gnupg,software-properties-common
+    name: gnupg
     state: present
-    update_cache: yes
-    cache_valid_time: 3600
 
 - name: add gpg hey
   rpm_key:
     key: "https://packages.grafana.com/gpg.key"
     validate_certs: no
 
-- name: add repository
+- name: install grafana  rpm repository
   yum_repository:
     name: grafana
-    baseurl: "https://packages.grafana.com/enterprise/rpm"
-    state: present
-    validate_certs: no
+    description: grafana  packages
+    baseurl: https://packages.grafana.com/oss/rpm
+    gpgcheck: true
+    gpgkey: https://packages.grafana.com/gpg.key
 
 - name: install grafana
   yum:
     name: grafana
     state: latest
     update_cache: yes
-    cache_valid_time: 3600
 
 - name: change admin user
   lineinfile:
@@ -72,14 +70,14 @@
     url: https://raw.githubusercontent.com/rfrail3/grafana-dashboards/master/prometheus/node-exporter-full.json
     dest: /var/lib/grafana/node-exporter.json
     mode: '0755'
-
-
-- name: activate dashboard for node exporter
-  template:
-    src: dashboard-node-exporter.yml.j2
-    dest: /etc/grafana/provisioning/dashboards/dashboard-node-exporter.yml
-    mode: 0755
   notify: restart_grafana
+
+#- name: activate dashboard for node exporter
+#  template:
+#    src: dashboard-node-exporter.yml.j2
+#    dest: /etc/grafana/provisioning/dashboards/dashboard-node-exporter.yml
+#    mode: 0755
+#  notify: restart_grafana
 
 
 

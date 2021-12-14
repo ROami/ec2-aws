@@ -1,7 +1,6 @@
 ---
 - name: Provision an EC2 Instance
-  hosts: localhost
-  connection: local
+  hosts: newec2
   gather_facts: False
   become: true
   vars_files:
