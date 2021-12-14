@@ -22,7 +22,7 @@
   - 3000
   - 9100
   register: sec_group_firewall
-  when: "{{ project_name }}" == "grafana"
+  when: project_name  == "grafana"
 
 
 - name: Create security group for normla ec2
@@ -43,7 +43,7 @@
   with_items:
   - 22
   register: sec_group_firewall
-  when: "{{ project_name }}" != "grafana"
+  when: project_name  != "grafana"
 
 
 - name: Create an EC2 key
