@@ -1,2 +1,9 @@
 ---
 # handlers file for prometheus
+
+- name: reload_prometheus
+  service:
+    name: prometheus
+    state: started
+    enabled: yes
+

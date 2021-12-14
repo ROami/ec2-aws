@@ -1,6 +1,9 @@
 ---
 # defaults file for prometheus
-
+userId: prometheus
+groupId: prometheus
+version: "2.8.1"
+prometheus_db_dir: "/var/lib/prometheus"
 prometheus_dir_configuration: "/etc/prometheus"
 prometheus_retention_time: "365d"
 prometheus_scrape_interval: "30s"

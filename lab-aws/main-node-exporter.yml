@@ -1,18 +1,12 @@
 ---
 - name: Provision an EC2 Instance
-  hosts: localhost
-  connection: local
+  hosts: newec2 
   gather_facts: False
   become: true
   vars_files:
 #  - '{{source_path}}/lab-aws/credential.yaml'
   - /var/lib/jenkins/workspace/aws-ansible/ec2-aws/lab-aws/credential.yaml
 
-  pre_tasks:
-  - name: Installing boto,boto3 python library using Ansible pip module
-    pip:
-      name: boto,boto3
-
    
   roles:
-  - create-ec2  
+  - node_exporter
