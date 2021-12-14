@@ -1,7 +1,7 @@
 ---
 # tasks file for create-ec2
 
-- name: Create security group
+- name: Create security group for grafana
   ec2_group:
     aws_access_key: "{{ ec2_access_key }}"
     aws_secret_key: "{{ ec2_secret_key }}"
@@ -9,14 +9,42 @@
     description: "{{ project_name }} security group"
     region: "{{ region }}"
     rules:
-      - proto: tcp  # ssh
-        from_port: 22
-        to_port: 22
+      - proto: tcp  
+        from_port: "{{ item }}"
+        to_port: "{{ item }}"
         cidr_ip: 0.0.0.0/0
     rules_egress:
       - proto: all
         cidr_ip: 0.0.0.0/0
+  with_items:
+  - 22 
+  - 9090
+  - 3000
+  - 9100
   register: sec_group_firewall
+  when: "{{ project_name }}" == "grafana"
+
+
+- name: Create security group for normla ec2
+  ec2_group:
+    aws_access_key: "{{ ec2_access_key }}"
+    aws_secret_key: "{{ ec2_secret_key }}"
+    name: "{{ project_name }}_security_group"
+    description: "{{ project_name }} security group"
+    region: "{{ region }}"
+    rules:
+      - proto: tcp
+        from_port: "{{ item }}"
+        to_port: "{{ item }}"
+        cidr_ip: 0.0.0.0/0
+    rules_egress:
+      - proto: all
+        cidr_ip: 0.0.0.0/0
+  with_items:
+  - 22
+  register: sec_group_firewall
+  when: "{{ project_name }}" != "grafana"
+
 
 - name: Create an EC2 key
   ec2_key:
