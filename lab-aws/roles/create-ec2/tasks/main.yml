@@ -31,6 +31,13 @@
   register: sec_group_firewall_grafana
   when: project_name  == "grafana"
 
+- name: debug sec_group_firewall_grafana
+  debug:
+    msg: "{{ sec_group_firewall_grafana}}"
+
+
+
+
 
 - name: Create security group for normal ec2
   ec2_group:
@@ -51,6 +58,12 @@
   - 22
   register: sec_group_firewall
   when: project_name  != "grafana"
+
+
+- name: debug sec_group_firewall
+  debug:
+    msg: "{{ sec_group_firewall}}"
+
 
 
 - name: Create an EC2 key
