@@ -75,12 +75,14 @@
 
 - name: Import Grafana dashboard foo
   grafana_dashboard:
-    grafana_url: http://grafana.company.com
-    grafana_api_key: "{{ grafana_api_key }}"
+    grafana_url: "http://127.0.0.1:3000"
+    grafana_user: "{{ grafana_admin_user }}"
+    grafana_password: "{{ grafana_admin_password }}"
     state: present
     message: Updated by ansible
     overwrite: yes
-    path: /path/to/dashboards/foo.json
+    path: node-exporter-full_rev23.json
+  notify: restart_grafana
 
 #- name: activate dashboard for node exporter
 #  template:
