@@ -5,14 +5,12 @@
   gather_facts: False
   become: true
   vars_files:
-#  - '{{source_path}}/lab-aws/credential.yaml'
-  - /var/lib/jenkins/workspace/aws-ansible/ec2-aws/lab-aws/credential.yaml
+  - "{{source_path}}/credential.yaml"
 
   pre_tasks:
   - name: Installing boto,boto3 python library using Ansible pip module
     pip:
       name: boto,boto3
-
    
   roles:
   - create-ec2  
