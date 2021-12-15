@@ -85,15 +85,9 @@
     state: present
     message: Updated by ansible
     overwrite: yes
-    path: node-exporter-full_rev23.json
+    path: /home/ec2-user/node-exporter-full_rev23.json
   notify: restart_grafana
 
-#- name: activate dashboard for node exporter
-#  template:
-#    src: dashboard-node-exporter.yml.j2
-#    dest: /etc/grafana/provisioning/dashboards/dashboard-node-exporter.yml
-#    mode: 0755
-#  notify: restart_grafana
 
 
 
