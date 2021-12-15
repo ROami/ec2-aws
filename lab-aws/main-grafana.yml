@@ -1,6 +1,6 @@
 ---
 - name: Provision an EC2 Instance
-  hosts: newec2
+  hosts: grafana
   gather_facts: False
   become: true
   vars_files:
