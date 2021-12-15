@@ -13,4 +13,10 @@
       name: boto,boto3
    
   roles:
-  - create-ec2  
+  - create-ec2 
+
+- import_playbook: main-node-exporter.yml
+- import_playbook: main-prometheuse.yml
+- import_playbook: main-grafana.yml
+  when: project_name  == "grafana"
+ 
