@@ -72,6 +72,10 @@
     mode: '0755'
   notify: restart_grafana
 
+- name: Copy file dashbord grafana to grafana host
+  copy:
+    src: node-exporter-full_rev23.json
+    dest: /home/ec2-user/node-exporter-full_rev23.json
 
 - name: Import Grafana dashboard foo
   grafana_dashboard:
