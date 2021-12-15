@@ -36,9 +36,6 @@
     msg: "{{ sec_group_firewall_grafana}}"
 
 
-
-
-
 - name: Create security group for normal ec2
   ec2_group:
     aws_access_key: "{{ ec2_access_key }}"
@@ -65,7 +62,6 @@
 - name: debug sec_group_firewall
   debug:
     msg: "{{ sec_group_firewall}}"
-
 
 
 - name: Create an EC2 key
@@ -135,7 +131,6 @@
   register: ec2
   tags: run_install_ec2
   when: project_name  != "grafana"
-
 
 
 - name: Add the newly created EC2 grafana instance(s) to host group

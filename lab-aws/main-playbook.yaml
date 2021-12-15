@@ -14,10 +14,10 @@
    
   roles:
   - create-ec2 
-
-- name: Sleep for 40 seconds and continue with play
-  wait_for:
-    timeout: 40
+  tasks:
+  - name: Sleep for 40 seconds and continue with play
+    wait_for:
+      timeout: 40
 
 - import_playbook: main-node-exporter.yml
 - import_playbook: main-prometheuse.yml
