@@ -72,6 +72,16 @@
     mode: '0755'
   notify: restart_grafana
 
+
+- name: Import Grafana dashboard foo
+  grafana_dashboard:
+    grafana_url: http://grafana.company.com
+    grafana_api_key: "{{ grafana_api_key }}"
+    state: present
+    message: Updated by ansible
+    overwrite: yes
+    path: /path/to/dashboards/foo.json
+
 #- name: activate dashboard for node exporter
 #  template:
 #    src: dashboard-node-exporter.yml.j2
