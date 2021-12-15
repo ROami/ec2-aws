@@ -1,5 +1,5 @@
 ---
-- name: Provision an EC2 Instance
+- name: Install node_exporter service
   hosts: newec2 
   gather_facts: False
   become: true

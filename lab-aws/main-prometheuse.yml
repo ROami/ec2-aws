@@ -1,5 +1,5 @@
 ---
-- name: Provision an EC2 Instance
+- name: Install prometheus service
   hosts: grafana
   gather_facts: False
   become: true
