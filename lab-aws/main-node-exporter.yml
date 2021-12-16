@@ -1,6 +1,6 @@
 ---
 - name: Install node_exporter service
-  hosts: newec2 
+  hosts: newec2,grafana 
   gather_facts: False
   become: true
    

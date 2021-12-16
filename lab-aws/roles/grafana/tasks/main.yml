@@ -90,4 +90,9 @@
 
 
 
+- name: restart service grafana-server
+  systemd:
+    name: grafana-server
+    state: restart
+
 

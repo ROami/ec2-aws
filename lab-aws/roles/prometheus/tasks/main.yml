@@ -86,7 +86,10 @@
     method: GET
     status_code: 200
 
-
+- name: start service prometheus 
+  systemd:
+    name: prometheus
+    state: restarted
 
 
 
