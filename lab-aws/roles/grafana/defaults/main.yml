@@ -1,5 +1,5 @@
 ---
 # defaults file for grafana
 
-grafana_admin_user: "rami"
-grafana_admin_password: "rami"
+grafana_admin_user: "baye"
+grafana_admin_password: "baye"
