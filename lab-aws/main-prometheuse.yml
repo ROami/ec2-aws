@@ -1,8 +1,9 @@
 ---
-- name: Install prometheus service
+- name: Install alertmanager/prometheus service
   hosts: grafana
   gather_facts: False
   become: true
 
   roles:
+  - alertmanager
   - prometheus 
