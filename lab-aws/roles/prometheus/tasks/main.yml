@@ -57,6 +57,12 @@
     - "{{ prometheus_dir_configuration }}/file_sd"
 
 
+- name: alert config file
+  copy:
+    src: alertrules.yml
+    dest: "{{ prometheus_dir_configuration }}/alert.rules.yml"
+
+
 - name: prometheus configuration file
   template:
     src: prometheus.yml.j2
@@ -70,7 +76,6 @@
   template:
     src: init.service.j2
     dest: /etc/systemd/system/prometheus.service
-#  notify: systemd_reload
 
 - name: Start prometheus service
   service:

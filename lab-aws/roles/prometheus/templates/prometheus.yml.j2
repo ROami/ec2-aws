@@ -11,4 +11,14 @@
 {% endfor %}
 {% endif %}
 
+rule_files:
+  - alert.rules.yml
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+  {% for server in groups[prometheus_node_exporter_group] %}
+      - {{ server }}:9093
+  {% endfor %}
 
