@@ -5,5 +5,5 @@
   become: true
 
   roles:
-  - alertmanager
+#  - alertmanager
   - prometheus 
