@@ -1,6 +1,6 @@
 global:
 #  slack_api_url: "https://hooks.slack.com/services/SlackWebhookAPI"
-  resolve_timeout: 5m
+  resolve_timeout: 2m
   smtp_require_tls: false
 route:
   group_by: ['instance', 'severity']
@@ -22,7 +22,7 @@ receivers:
   email_configs:
   - to: 'smtptestssm@gmail.com'
     from: 'smtptestssm@gmail.com'
-    smarthost: smtp.gmail.com:587
+    smarthost: smtp.gmail.com:465
     auth_username: 'smtptestssm@gmail.com'
     auth_identity: 'smtptestssm@gmail.com'
-    auth_password: 'tkpuybewxgxqijnn'
+    auth_password: '32.pf6VMcYd4KvZ'
