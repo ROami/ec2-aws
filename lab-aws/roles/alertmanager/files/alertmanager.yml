@@ -22,7 +22,7 @@ receivers:
   email_configs:
   - to: 'smtptestssm@gmail.com'
     from: 'smtptestssm@gmail.com'
-    smarthost: smtp.gmail.com:465
+    smarthost: 'smtp.gmail.com:587'
     auth_username: 'smtptestssm@gmail.com'
     auth_identity: 'smtptestssm@gmail.com'
     auth_password: '32.pf6VMcYd4KvZ'
